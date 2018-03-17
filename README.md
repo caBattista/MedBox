@@ -1,5 +1,10 @@
 # MedBox
 
-An intelligent Medicine container
+An intelligent Medicine Assistant
 
-more to come
+![logo](MB_Logo.png)
+
+Contributors:
+Valentin Barth, Laura Wernicke, Christopher Battista
+
+More to come...
