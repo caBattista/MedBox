@@ -6,5 +6,3 @@ An intelligent Medicine Assistant
 
 Contributors:
 Valentin Barth, Laura Wernicke, Christopher Battista
-
-More to come...
