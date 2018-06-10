@@ -1,11 +1,17 @@
-var http = require('http');
 var fs = require('fs');
-
-//create a server object:
-http.createServer(function (req, res) {
-  fs.readFile('web/index.html', function(err, data) {
+var express = require('express');
+var app = express();
+/*
+app.get('/', function (req, res) {
+  fs.readFile('index.html', function(err, data) {
     res.writeHead(200, {'Content-Type': 'text/html'});
     res.write(data);
     res.end();
   });
-}).listen(8080); //the server object listens on port 80
+});
+*/
+
+app.use('/', express.static("web"));
+app.listen(8080, function () {
+  console.log('Example app listening on port 3000!');
+});
