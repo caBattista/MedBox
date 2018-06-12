@@ -6,7 +6,7 @@ var loader = {
         xhttp.onreadystatechange = function() {
             if (this.readyState == 4 && this.status == 200) {
                 //add Html
-                document.body.removeChild(stage);
+                if(document.getElementById("stage")){document.body.removeChild(stage);}
                 var stg = document.createElement("div");
                 stg.id = "stage";
                 stg.style.opacity = 0;
@@ -23,7 +23,7 @@ var loader = {
                     pageStyle.media = "all";
                     stage.appendChild(pageStyle);
 
-                    setTimeout(() =>{
+                    setTimeout(() => {
                         //add js
                         var script = document.createElement("script")
                         script.type = "text/javascript";
