@@ -14,6 +14,7 @@ const loader = {
         var xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function() {
             if (this.readyState == 4 && this.status == 200) {
+                console.log(this.responseText);
                 eval(this.responseText);
             }
         };
@@ -22,3 +23,4 @@ const loader = {
         console.log("loading: " + folder);
     }
 }
+var stage;

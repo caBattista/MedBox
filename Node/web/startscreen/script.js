@@ -1,4 +1,4 @@
-var stage = {
+stage = {
 	logoTop: document.getElementById("logo_top"),
 	logoBot: document.getElementById("logo_bot"),
 	rotate: (rotate) => {

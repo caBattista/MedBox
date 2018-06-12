@@ -1,15 +1,18 @@
-var stage = {
-	bgimage = document.getElementById("login"),
-	currImg = 0,
-	cylceImages = () => {
-		stage.currImg++;
-		stage.bgimage.src = "wi" + stage.currImg + ".png";
-	},
-	run: () => {
-		stage.bgimage.onclick = () => {
-			loader.load("startscreen");
-		};
-		setInterval(stage.cylceImages,5000);
+var currImg = 0;
+var imgOffset = [
+	-450,-450,-450,-450,-450,
+];
+function cylceImages() {
+	if(currImg == 5){
+		currImg = 0;
 	}
+	currImg++;
+	var bgimage = document.getElementById("bgImage");
+	bgimage.src = "images/wi" + currImg + ".png";
+	bgimage.style.left = /*imgOffset[currImg]*/ "-450" + "px";	
 }
-stage.run();
+//setInterval(cylceImages,2000);
+var login = document.getElementById("login");
+login.onclick = () => {
+	loader.load("startscreen");
+};
