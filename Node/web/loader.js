@@ -1,33 +1,44 @@
 
 var loader = {
     sso: undefined,
-    stage: document.getElementById("stage"),
     load: function (folder) {
         var xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function() {
             if (this.readyState == 4 && this.status == 200) {
-                stage.innerHTML = this.responseText;
-                loader.loadJS(folder);
+                //add Html
+                document.body.removeChild(document.getElementById("stage"));
+                var stg = document.createElement("div");
+                stg.id = "stage";
+                stg.style.opacity = 0;
+                setTimeout(() =>{
+                    //add html
+                    stg.innerHTML = this.responseText;
+                    document.body.appendChild(stg);
+                    
+                    //add css
+                    var pageStyle = document.createElement("link");
+                    pageStyle.href = folder + "/style.css";
+                    pageStyle.rel = "stylesheet";
+                    pageStyle.type = "text/css";
+                    pageStyle.media = "all";
+                    stage.appendChild(pageStyle);
+
+                    //add js
+                    var script = document.createElement("script")
+                    script.type = "text/javascript";
+                    script.src = folder + "/script.js";
+                    stage.appendChild(script);
+                    stg.style.opacity = 1;
+                },250);
             }
         };
         xhttp.open("GET", folder + "/page.html", true);
         xhttp.send();
-    },
-    loadJS: (folder) => {
-        var xhttp = new XMLHttpRequest();
-        xhttp.onreadystatechange = function() {
-            if (this.readyState == 4 && this.status == 200) {
-                setTimeout(() => {
-                    eval(this.responseText);
-                }, 500); 
-            }
-        };
-        xhttp.open("GET", folder + "/script.js", true);
-        xhttp.send();
     }
 }
-//loader.load("startscreen");
-loader.load("login");
+//loader.load("1_startscreen");
+//loader.load("2_login");
+loader.load("3_Hauptmenue");
 
 /*
 class Loader {
