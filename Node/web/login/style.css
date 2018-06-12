@@ -1,0 +1,27 @@
+#bgImage{
+	left: -450px;
+}
+.button{
+	position: absolute;
+	height: 50px;
+	width: 75%;
+	bottom: 70px;
+	left: 0;
+	right: 0;
+	margin: 0 auto;
+	color: white;
+	font-family: arial;
+	text-align: center;
+	line-height: 50px;
+	font-size: 20px;
+	align-self: center;
+	background: #4F8A9C;
+	opacity: 0.9;
+	border-radius: 4px;
+	transition: all 0.1s ease-in-out;
+	cursor: pointer;
+  }
+.button:active{
+	transform: scale(1.025);
+}
+  
