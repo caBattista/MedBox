@@ -1,5 +1,5 @@
 const WebSocket = require('ws');
-const ws = new WebSocket('ws://localhost:8085');
+const ws = new WebSocket('ws://192.168.0.102:8085');
 const stdin = process.openStdin();
 
 const dispense = {
