@@ -6,7 +6,7 @@ var loader = {
         xhttp.onreadystatechange = function() {
             if (this.readyState == 4 && this.status == 200) {
                 //add Html
-                document.body.removeChild(document.getElementById("stage"));
+                document.body.removeChild(stage);
                 var stg = document.createElement("div");
                 stg.id = "stage";
                 stg.style.opacity = 0;
@@ -23,22 +23,24 @@ var loader = {
                     pageStyle.media = "all";
                     stage.appendChild(pageStyle);
 
-                    //add js
-                    var script = document.createElement("script")
-                    script.type = "text/javascript";
-                    script.src = folder + "/script.js";
-                    stage.appendChild(script);
-                    stg.style.opacity = 1;
-                },250);
+                    setTimeout(() =>{
+                        //add js
+                        var script = document.createElement("script")
+                        script.type = "text/javascript";
+                        script.src = folder + "/script.js";
+                        stage.appendChild(script);
+                        stg.style.opacity = 1;
+                    },100);
+                },100);
             }
         };
         xhttp.open("GET", folder + "/page.html", true);
         xhttp.send();
     }
 }
-//loader.load("1_startscreen");
+loader.load("1_startscreen");
 //loader.load("2_login");
-loader.load("3_Hauptmenue");
+//loader.load("3_Hauptmenue");
 
 /*
 class Loader {
