@@ -1,6 +1,7 @@
 body{
 	margin: 0;
 	padding: 0;
+	background-color: #f1f1f3;
 }
 #topbar{
 	position: absolute;
@@ -13,7 +14,7 @@ body{
 	height: 100%;
 	top: 20px;
 	overflow: hidden;
-	background-color: #f2f3f1;
+
 }
 .img{
 	position: absolute;

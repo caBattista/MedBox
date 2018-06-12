@@ -1,13 +1,15 @@
 var stage = {
 	bgimage = document.getElementById("login"),
+	currImg = 0,
 	cylceImages = () => {
-		stage.bgimage.src = "";
+		stage.currImg++;
+		stage.bgimage.src = "wi" + stage.currImg + ".png";
 	},
 	run: () => {
 		stage.bgimage.onclick = () => {
 			loader.load("startscreen");
 		};
-		setInterval();
+		setInterval(stage.cylceImages,5000);
 	}
 }
 stage.run();
