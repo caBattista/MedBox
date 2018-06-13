@@ -1,20 +1,22 @@
 [
-    {
-        "name":"Hans Tester",
-        "password":"1234",
-        "boxes":[
-            {
-                "name":"box1",
-                "medType":"multivitamin",
-                "amount": 5,
-                "reminders":[
-                    {
-                        "name":"Pille Morgens",
-                        "type":"daily",
-                        "time":"18:05"
-                    }
-                ]
-            }
-        ]
-    }
+ {
+  "name": "Hanst Tester",
+  "boxes": [
+   {
+    "name": "box1",
+    "med": {
+        "name":"",
+        "id":""
+    },
+    "amount": 5,
+    "reminders": [
+     {
+      "name": "Pille Morgens",
+      "type": "daily",
+      "time": "18:05"
+     }
+    ]
+   }
+  ]
+ }
 ]

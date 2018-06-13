@@ -17,7 +17,7 @@ Quagga.init({
           console.log(err);
           return
       }
-      //console.log("Initialization finished. Now starting.");
+      console.log("Initialization finished. Now starting.");
       Quagga.start();
   });
 
@@ -26,8 +26,22 @@ Quagga.onDetected((data) => {
   stage.results.push(data.codeResult.code);
   lbarInner.style.width = (stage.results.length * 5) + "%";
   if(stage.results.length >= 20){
-    lbarInner.textContent = stage.mode(stage.results);
+    const bestres = stage.mode(stage.results);
+    lbarInner.textContent = bestres;
     Quagga.stop();
+    ws.get((json) => {
+        for (let i = 0; i < json.length; i++) {
+            if(json[i].id == bestres){
+                console.log(json[i].name);
+                result.textContent = json[i].name;
+            }
+        }
+    },"Meds.json");
+    /*ws.get((data) => {
+        data[0].boxes[0].med.id = parseInt(bestres);
+        
+        //ws.set(data, "UsersTest.json");
+    });*/
   }
 });
 

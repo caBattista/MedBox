@@ -38,7 +38,7 @@ const loader = {
         },100);
     }
 }
-//loader.load("1_startscreen");
-//loader.load("2_login");
+//loader.load("1_Startscreen");
+//loader.load("2_Login");
 loader.load("3_Hauptmenue");
 //loader.load("4_Barcodescanner");

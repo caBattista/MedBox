@@ -5,5 +5,5 @@ setTimeout(() => {
 },500);
 
 setTimeout(() => {
-	loader.load("2_login");
+	loader.load("2_Login");
 },2000);

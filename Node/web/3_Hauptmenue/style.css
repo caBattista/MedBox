@@ -12,21 +12,18 @@
 	position: relative;
 	float: left;
 	top: 40px;
-	width: 40%;
+	width: 50%;
 	height: 100%;
-	margin: 0 5px 0 10px;
 }
 #columnRight{
 	position: relative;
 	float: right;
 	top: 40px;
-	width: 40%;
+	width: 50%;
 	height: 100%;
-	margin: 0 10px 0 5px;
 }
 .item{
-	margin: 10px 0 0 0;
-	width: 100%;
+	margin: 10px 10px 0 5px;
 	height: 25%;
 	border-radius: 4px;
 	background-color: #fff;
@@ -34,6 +31,12 @@
 	color: grey;
 	text-align: center;
 	line-height: 50px;
+}
+#columnLeft > div{
+	margin: 10px 5px 0 10px;
+}
+#columnRight > div{
+	margin: 10px 10px 0 5px;
 }
 div.item:hover{
 	box-shadow: 0 0 10px 1px #aaa inset;
