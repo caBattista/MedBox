@@ -19,8 +19,8 @@ stage.cylceImages = () => {
 		bgImage.style.left = stage.cycle[stage.currImg].ofst + "px";
 		l1.textContent = stage.cycle[stage.currImg].tt;
 		l2.textContent = stage.cycle[stage.currImg].bt;
-		darker.style.opacity = 0.4;
-		lcont.style.opacity = 1;
+		darker.style.opacity = null;
+		lcont.style.opacity = null;
 		stage.currImg++;
 	},1000);
 }

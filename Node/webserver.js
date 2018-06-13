@@ -3,5 +3,5 @@ var app = express();
 
 app.use('/', express.static("web"));
 app.listen(8080, function () {
-  console.log('Example app listening on port 8080!');
+  console.log('listening on port 8080!');
 });

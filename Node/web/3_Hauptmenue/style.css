@@ -8,16 +8,33 @@
 	text-align: center;
 	line-height: 40px;
 }
-.item{
+#columnLeft{
 	position: relative;
-	top: 50px;
-	margin: 15px auto;
-	width: 95%;
-	height: 50px;
+	float: left;
+	top: 40px;
+	width: 40%;
+	height: 100%;
+	margin: 0 5px 0 10px;
+}
+#columnRight{
+	position: relative;
+	float: right;
+	top: 40px;
+	width: 40%;
+	height: 100%;
+	margin: 0 10px 0 5px;
+}
+.item{
+	margin: 10px 0 0 0;
+	width: 100%;
+	height: 25%;
 	border-radius: 4px;
 	background-color: #fff;
 	box-shadow: 0 0 10px 1px #aaa;
 	color: grey;
 	text-align: center;
 	line-height: 50px;
+}
+div.item:hover{
+	box-shadow: 0 0 10px 1px #aaa inset;
 }
