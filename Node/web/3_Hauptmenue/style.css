@@ -23,14 +23,12 @@
 	height: 100%;
 }
 .item{
+	position: relative;
 	margin: 10px 10px 0 5px;
 	height: 25%;
 	border-radius: 4px;
 	background-color: #fff;
-	box-shadow: 0 0 10px 1px #aaa;
-	color: grey;
-	text-align: center;
-	line-height: 50px;
+	box-shadow: 0 0 10px 1px #aaa;	
 }
 #columnLeft > div{
 	margin: 10px 5px 0 10px;
@@ -41,3 +39,13 @@
 div.item:hover{
 	box-shadow: 0 0 10px 1px #aaa inset;
 }
+span {
+	position: absolute;
+	top: calc(50% - 22px);
+	height: 22px;
+	left: 0;
+	right: 0;
+	color: grey;
+	text-align: center;
+	pointer-events: none;
+  }

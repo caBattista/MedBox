@@ -13,8 +13,13 @@
      {
       "name": "Pille Morgens",
       "type": "daily",
-      "time": "18:05"
-     }
+      "time": "23:02"
+     },
+     {
+    "name": "Pille Mittags",
+    "type": "daily",
+    "time": "23:00"
+    }
     ]
    }
   ]

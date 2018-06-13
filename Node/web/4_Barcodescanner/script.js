@@ -1,4 +1,4 @@
-Quagga.init({
+/*Quagga.init({
     inputStream : {
       name : "Live",
       type : "LiveStream",
@@ -37,11 +37,6 @@ Quagga.onDetected((data) => {
             }
         }
     },"Meds.json");
-    /*ws.get((data) => {
-        data[0].boxes[0].med.id = parseInt(bestres);
-        
-        //ws.set(data, "UsersTest.json");
-    });*/
   }
 });
 
@@ -64,13 +59,16 @@ stage.mode = (array) => {
       }
   }
   return maxEl;
-}
+}*/
 
 bb.onclick = () => {
 	clearInterval(stage.intrerv);
 	loader.load("3_Hauptmenue");
 };
 
+ws.get(json => {
+    result.textContent = json[0].name;
+},"Meds.json");
 
 
 

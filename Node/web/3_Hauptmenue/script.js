@@ -1,4 +1,4 @@
-stage.links = ["5_Uebersicht", "3_Hauptmenue", "3_Hauptmenue"];
+stage.links = ["5_Uebersicht", "3_Hauptmenue", "6_Einstellungen"];
 for (let i = 0; i < stage.links.length; i++) {
 	columnLeft.children[i].onclick = () => {
 		loader.load(stage.links[i]);
