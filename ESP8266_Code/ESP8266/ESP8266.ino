@@ -1,8 +1,9 @@
 #include <ESP8266WiFi.h>
 #include <WiFiClient.h>
-
-const char* ssid = "TP-LINK_8B1E";
-const char* password = "94077278";
+#include <ESP8266WiFiMulti.h>
+#include <ESP8266WebServer.h>
+ESP8266WiFiMulti WiFiMulti;
+ESP8266WebServer server = ESP8266WebServer(80);
 
 #include <WebSocketsClient.h>
 WebSocketsClient webSocket;
@@ -26,9 +27,9 @@ const uint8_t pixel = 0;
 
 const int buttonPin = 13;
 
-void setup(void){
+String ws = "192.168.0.103";
 
-  Serial.begin(74880);
+void setup(void){
 
   servo.attach(servoPin);
   servo.write(closedAngle);
@@ -40,6 +41,21 @@ void setup(void){
   
   pinMode(buttonPin, INPUT_PULLUP);
 
+  WiFi.mode(WIFI_AP);
+  WiFi.softAP("MedBox", "hier1234");
+
+  server.on("/set", []() {
+    if(server.args() == 1){
+      if(server.argName(0) == "ws"){ws = String(server.arg(0));}
+      }
+    server.send(200, "text/html", "Set WsIP to: " + server.arg(0));   
+  });
+  server.begin();
+
+  // Wait for button press
+  while(digitalRead(buttonPin) == 1){delay(100);server.handleClient();}
+  WiFi.mode(WIFI_STA);
+
   Wire.begin(14,12);
   display.begin(SSD1306_SWITCHCAPVCC, 0x3c);  // initialize with the I2C addr 0x3D (for the 128x64)
   display.clearDisplay();
@@ -48,25 +64,28 @@ void setup(void){
   display.setCursor(0,0);
   display.print("Connecting");
   display.display();
-  
-  WiFi.mode(WIFI_STA);
-  WiFi.begin(ssid, password);
-  
+
+  WiFiMulti.addAP("huawei", "12345678");
+  WiFiMulti.addAP("TP-LINK_8B1E", "94077278");
+
+    uint8_t i = 0;
   // Wait for connection
-  while (WiFi.status() != WL_CONNECTED) {
+  while ((WiFiMulti.run() != WL_CONNECTED) && (i<10)) {
     delay(1000);
     display.print(".");
     display.display();
+    i++;
   }
 
   display.println("");
-  display.print("ssid:");
-  display.println(ssid);
   display.print("IP:");
   display.println(WiFi.localIP());
+  display.print("WsIP:");
+  display.println(ws);
   display.display();
 
-  webSocket.begin("192.168.0.102", 8085, "/");
+  webSocket.begin(ws, 8085, "/");
+
   webSocket.onEvent(webSocketEvent);
   webSocket.setReconnectInterval(5000);
 
@@ -78,8 +97,6 @@ void setup(void){
   setLed(RgbColor(0,0,0));
   delay(1000);
 }
-
-
 
 void dispense(){
   servo.attach(servoPin);

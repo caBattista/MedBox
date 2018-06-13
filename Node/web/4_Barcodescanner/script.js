@@ -1,4 +1,4 @@
-/*Quagga.init({
+Quagga.init({
     inputStream : {
       name : "Live",
       type : "LiveStream",
@@ -59,7 +59,7 @@ stage.mode = (array) => {
       }
   }
   return maxEl;
-}*/
+}
 
 bb.onclick = () => {
 	clearInterval(stage.intrerv);
