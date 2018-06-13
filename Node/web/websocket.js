@@ -1,5 +1,5 @@
 const ws = {
-    con: new WebSocket('ws://' + location.hostname + ':8085', ['json']),
+    con: new WebSocket('ws://' + location.hostname + ':8084', ['json']),
     get: (calback, f) => {
         ws.con.send(JSON.stringify({type:"get", file:f}));
         ws.onRes(calback);
@@ -7,6 +7,7 @@ const ws = {
     onRes: (calback) => {
         ws.con.onmessage = event => {
             calback(JSON.parse(event.data));
+            ws.con.onmessage = undefined;
         }
     },
     set: (obj, f) => {
