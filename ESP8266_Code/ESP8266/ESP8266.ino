@@ -41,6 +41,17 @@ void setup(void){
   
   pinMode(buttonPin, INPUT_PULLUP);
 
+  Wire.begin(14,12);
+  display.begin(SSD1306_SWITCHCAPVCC, 0x3c);  // initialize with the I2C addr 0x3D (for the 128x64)
+  display.clearDisplay();
+  display.setTextSize(1);
+  display.setTextColor(WHITE);
+  display.setCursor(0,0);
+  display.println("Set WsIp at: ");
+  display.println("192.168.4.1/set?ws=IP");
+  display.println("SSID: MedBox");
+  display.display();
+
   WiFi.mode(WIFI_AP);
   WiFi.softAP("MedBox", "hier1234");
 
@@ -56,12 +67,8 @@ void setup(void){
   while(digitalRead(buttonPin) == 1){delay(100);server.handleClient();}
   WiFi.mode(WIFI_STA);
 
-  Wire.begin(14,12);
-  display.begin(SSD1306_SWITCHCAPVCC, 0x3c);  // initialize with the I2C addr 0x3D (for the 128x64)
-  display.clearDisplay();
-  display.setTextSize(1);
-  display.setTextColor(WHITE);
   display.setCursor(0,0);
+  display.clearDisplay();
   display.print("Connecting");
   display.display();
 
@@ -78,7 +85,7 @@ void setup(void){
   }
 
   display.println("");
-  display.print("IP:");
+  display.print("My IP:");
   display.println(WiFi.localIP());
   display.print("WsIP:");
   display.println(ws);
@@ -204,15 +211,14 @@ void webSocketEvent(WStype_t type, uint8_t * payload, size_t length) {
 
   switch(type) {
     case WStype_DISCONNECTED:
-      displ("websocket disconnected"); 
+      displ("websocket disconnected",1); 
       break;
     case WStype_CONNECTED: {
-      displ("websocket connected");
+      displ("websocket connected",1);
       webSocket.sendTXT("Hi from Medbox");
     }
       break;
     case WStype_TEXT:
-      //displ((char*) payload, 1);
       handleJson((char*) payload);
       break;
   }

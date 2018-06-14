@@ -86,7 +86,6 @@ wss2.on('connection', ws => {
         console.log("reminding");
       });
   }, 1000);
-
   
 });
 
