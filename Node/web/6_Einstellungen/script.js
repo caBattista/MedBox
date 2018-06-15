@@ -1,6 +1,6 @@
 bb.onclick = () => {
 	clearInterval(stage.intrerv);
-	loader.load("3_Hauptmenue");
+	loader.load(3);
 };
 stage.wsM = new WebSocket('ws://' + location.hostname + ':8085', ['json']);
 stage.wsM.onmessage = event => {

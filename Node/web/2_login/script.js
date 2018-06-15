@@ -36,16 +36,19 @@ stage.cylceImages = () => {
 	stage.imgs[stage.currImg].style.transition = "1s";
 	stage.imgs[stage.currImg].style.opacity = 1;
 	setTimeout(() => {
+		stage.imgs[stage.currImg].style.filter = "brightness(50%)";
 		t1.textContent = stage.cycle[stage.currImg].tt;
 		t2.textContent = stage.cycle[stage.currImg].bt;
 		lCont.style.transition = "1s";
 		lCont.style.opacity = 1;
 		if(stage.currImg == 0){ 
 			stage.imgs[stage.imgs.length-1].style.opacity = 0;
+			stage.imgs[stage.imgs.length-1].style.filter = "";
 			stage.circles[stage.imgs.length-1].style.backgroundColor = "";
 		}
 		else{
 			stage.imgs[stage.currImg-1].style.opacity = 0;
+			stage.imgs[stage.currImg-1].style.filter = "";
 			stage.circles[stage.currImg-1].style.backgroundColor = "";	
 		}
 		stage.circles[stage.currImg].style.backgroundColor = "white";
@@ -59,5 +62,10 @@ einloggen.onclick = () => {
 };
 login.onclick = () => {
 	clearInterval(stage.intrerv);
-	loader.load(4);
+	loader.load(5);
+};
+lCont.onclick = () => {
+	clearInterval(stage.intrerv);
+	stage.intrerv = setInterval(() => {stage.cylceImages();},7000);
+	stage.cylceImages();
 };

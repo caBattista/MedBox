@@ -1,16 +1,16 @@
 const loader = {
     onbeforeunload : () => {},
 
-    load : page => {
+    load : (page, keep) => {
         page--;
         fetch(loader.pages[page] + "/page.html").then(res => {
             res.text().then( text => {
-                loader.build(text, loader.pages[page]);
+                loader.build(text, loader.pages[page], keep);
             });
         });
     },
 
-    build : (html, folder) => {
+    build : (html, folder, keep) => {
 
         //run the onbeforeunload function and delete ist
         loader.onbeforeunload();
@@ -18,7 +18,10 @@ const loader = {
 
         //clear stage object
         window.stage = {};
-
+        if(keep){
+            window.stage.kept = keep;
+        }
+    
         setTimeout(() => {
 
             //remove old stage
@@ -58,9 +61,10 @@ const loader = {
         "3_hauptmenue",
         "4_barcodescanner",
         "5_einrichten",
-        "6_einstellungen"
+        "6_einstellungen",
+        "7_medhinzu"
     ]
 }
 window.onload = () => {
-    loader.load(5); 
+    loader.load(1); 
 }

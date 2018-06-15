@@ -26,7 +26,6 @@
 	border-radius: 4px;
 	background-color: #ddd;
 	overflow: hidden;
-	opacity: 0.7;
 	
 }
 #lbarInner{
@@ -52,12 +51,11 @@
 	text-align: center;
 	line-height: 30px;
 }
-#keinBarc{
+#next{
 	position: absolute;
 	left: 50%;
 	transform: translate(-50%);
-	bottom: 1%;
-	padding: 25px;
+	bottom: 5%;
 	font-size: 0.75em;
 	color: #bbb;
 }

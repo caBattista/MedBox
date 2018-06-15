@@ -1,6 +1,22 @@
 [
     {
-    "id":"5901234123457",
-    "name":"Multivitamin"
+        "id":"1",
+        "name":"Paradoxin",
+        "tpyReminders": [
+            {
+                "name": "Pille Morgens",
+                "type": "daily",
+                "time": "23:02"
+            },
+            {
+                "name": "Pille Abends",
+                "type": "daily",
+                "time": "23:02"
+            }
+        ]
+    },
+    {
+        "id":"5901234123457",
+        "name":"Multivitamin"
     }
 ]

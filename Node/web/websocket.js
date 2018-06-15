@@ -1,6 +1,6 @@
 const ws = {
     con: new WebSocket('ws://' + location.hostname + ':8084', ['json']),
-    get: (calback, f) => {
+    get: (f, calback) => {
         ws.con.send(JSON.stringify({type:"get", file:f}));
         ws.onRes(calback);
     },
