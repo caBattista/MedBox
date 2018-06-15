@@ -1,29 +1,35 @@
 const loader = {
-    sso : undefined,
     onbeforeunload : () => {},
-    load : folder => {
-        fetch(folder + "/page.html").then(res => {
+
+    load : page => {
+        page--;
+        fetch(loader.pages[page] + "/page.html").then(res => {
             res.text().then( text => {
-                loader.build(text, folder);
+                loader.build(text, loader.pages[page]);
             });
         });
     },
+
     build : (html, folder) => {
+
+        //run the onbeforeunload function and delete ist
         loader.onbeforeunload();
         loader.onbeforeunload = () => {};
+
+        //clear stage object
         window.stage = {};
+
         setTimeout(() => {
+
+            //remove old stage
+            const oStg =  document.getElementById("stage")
+            if(oStg){   document.body.removeChild(oStg);    }
+
             //add Html
-            if(document.getElementById("stage"))
-            {   
-                document.getElementById("stage").style.opacity = 0;
-                document.body.removeChild(document.getElementById("stage"));
-            }
             const stg = document.createElement("div");
             stg.id = "stage";
             stg.style.opacity = 0;
             stg.innerHTML = html;
-            document.body.appendChild(stg);
             
             //add css
             const pageStyle = document.createElement("link");
@@ -38,15 +44,23 @@ const loader = {
             script.type = "text/javascript";
             script.src = folder + "/script.js";
             stg.appendChild(script);
+
+            document.body.appendChild(stg);
             
             setTimeout(() => {
                 stg.style.opacity = 1;
             },100);
         },100);
-    }
+    },
+    pages: [
+        "1_startscreen",
+        "2_login",
+        "3_hauptmenue",
+        "4_barcodescanner",
+        "5_einrichten",
+        "6_einstellungen"
+    ]
 }
-loader.load("1_Startscreen");
-//loader.load("2_Login");
-//loader.load("3_Hauptmenue");
-//loader.load("4_Barcodescanner");
-//loader.load("6_Einstellungen");
+window.onload = () => {
+    loader.load(5); 
+}

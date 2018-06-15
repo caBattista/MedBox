@@ -1,9 +1,14 @@
+@font-face {
+    font-family: HelveticaNeue-Ligh;
+    src: url("HelveticaNeue-Light.otf") format("opentype");
+}
 body{
 	margin: 0;
 	padding: 0;
 	background-color: #f1f1f3;
-	font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+	font-family: 'HelveticaNeue-Ligh';
 	font-size: 20px;
+	color: #222222;
 }
 #stage{
 	position: absolute;
@@ -18,5 +23,39 @@ body{
     top: 0;
     left: 0;
     right: 0;
-    bottom: 0;
+	bottom: 0;
+}
+#tb{
+	position: fixed;
+	top: 0;
+	width: 100%;
+	height: 40px;
+	background-image: linear-gradient(-45deg, #0c4a82 0%, #7bc9d5 50%);
+	color: white;
+	text-align: center;
+	line-height: 40px;
+}
+#bb{
+	position: absolute;
+	margin: auto 0 auto 0;
+	top: 0;
+	bottom: 0;
+	left: 10px;
+	width: 15px;
+	height: 20px;
+}
+.btn{
+	position: relative;
+	height: 3em;
+	width: 45%;
+	margin: 0 auto;
+	overflow: hidden;
+	text-align: center;
+	line-height: 3em;
+	align-self: center;
+	border-radius: 4px;
+	transition: all 0.1s ease-in-out;
+	cursor: pointer;
+	background: #4F8A9C;
+	color: white;
 }

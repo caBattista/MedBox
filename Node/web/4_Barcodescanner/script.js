@@ -63,11 +63,9 @@ stage.mode = (array) => {
 
 bb.onclick = () => {
 	clearInterval(stage.intrerv);
-	loader.load("3_Hauptmenue");
+	loader.load(3);
 };
 
 ws.get(json => {
     result.textContent = json[0].name;
 },"Meds.json");
-
-

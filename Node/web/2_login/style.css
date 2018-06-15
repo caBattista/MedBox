@@ -1,52 +1,64 @@
-.button{
-	position: absolute;
-	height: 50px;
-	width: 75%;
-	bottom: 70px;
-	left: 0;
-	right: 0;
-	margin: 0 auto;
-	color: white;
-	text-align: center;
-	line-height: 50px;
-	font-size: 20px;
-	align-self: center;
-	background: #4F8A9C;
-	opacity: 0.9;
-	border-radius: 4px;
-	transition: all 0.1s ease-in-out;
-	cursor: pointer;
-  }
-.button:active{
-	transform: scale(1.025);
-}
-#lcont{
-	position: absolute;
-	left: 0;
-	right: 0;
-	top: 0;
-	bottom: 0;
-	height: 120px;
-	width: 75%;
-	margin: auto;
-	color: white;
-	transition: 1s;
-}
-#l1{
-	font-size: 18px;
-	line-height: 30px;
-	text-align: left;
-}
-#l2{
-	font-size: 15px;
-	line-height: 20px;
-	text-align: left;
-}
-#darker{
+.bgImg{
 	position: absolute;
 	height: 100%;
-	width: 100%;
-	background-color: #000;
-	opacity: 0.4;
-	transition: 1s;
+	/*center absolute an fixed divs*/
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	filter: brightness(50%);
+}
+.l{
+	float: left;
+	background: #D0CECE;
+	color: #222;
+	opacity: 0.75;
+}
+.r{
+	float: right;
+}
+.btn:active{
+	transform: scale(1.025);
+}
+#lCont{
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: 300px;
+	overflow: hidden;
+	color: white;
+	text-align: left;
+}
+#t1{
+	font-size: 18px;
+	line-height: 30px;
+}
+#t2{
+	font-size: 15px;
+	line-height: 20px;
+}
+.btnCont{
+	position: fixed;
+	width: 300px;
+	left: 50%;
+	transform: translate(-50%);
+	bottom: 20px;
+}
+.cCont{
+	position: fixed;
+	width: 70px;
+	height: 12px;
+	left: 0;
+	right: 0;
+	bottom: 100px;
+	margin: 0 auto;
+}
+.circle{
+	box-sizing: border-box;
+	float: left;
+	margin: 1px;
+	height: 12px;
+    width: 12px;
+	border-radius: 50%;
+	border: 1px solid white;
 }
