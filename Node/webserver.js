@@ -4,33 +4,48 @@ const app = express();
 
 app.use('/', express.static("web"));
 app.listen(8080, function () {
-  console.log('listening on port 8080! ');
+  console.log('listening on port 8080!');
 });
 
-//Connection to Frontend
+//Ws-Connection to Frontend
 const WebSocket = require('ws');
 const wss = new WebSocket.Server({port: 8084});
+let wsConns = 0;
 
 wss.on('connection', ws => {
-  console.log("conected");
+  wsConns++;
+  console.log("ws to fronend conected conns: " + wsConns);
+  wsOn = true;
   ws.on('message', msg => {
     const msgObj = JSON.parse(msg);
-    if(msgObj.type == "get"){
-      getJson(json => {
-        ws.send(JSON.stringify(json));
-      }, msgObj.file);
+    switch (msgObj.type) {
+      case "get":
+        getJson(json => ws.send(JSON.stringify(json)), msgObj.file);
+        break;
+      case "set":
+        setJson(JSON.parse(msgObj.json), msgObj.file);
+        break;
+      case "rqNotifications":
+        if(wsConns === 1){
+          console.log('notify');
+          notify(wss);
+        }
+        break;
     }
-    else if(msgObj.type == "set"){
-      setJson(JSON.parse(msgObj.json), msgObj.file);
-    }
+  });
+  ws.on('close', function close() {
+    wsConns--;
+    console.log("ws to fronend disconected conns: " + wsConns);
   });
 });
 
+//reads json and sends it to front end
 const getJson = (callback, file) => {
   try { 
     fs.readFile(file, 'utf8', function (err, data) {
       if (err) {return console.log(err);}
-      callback(JSON.parse(data));
+      const json = {file:JSON.parse(data)}
+      callback(json);
       //console.log(data);
     });
   } catch (error) {
@@ -38,6 +53,7 @@ const getJson = (callback, file) => {
   }
 }
 
+//recieves json and writes it to file
 const setJson = (json, file) => {
   try {
     fs.writeFile(file, JSON.stringify(json, null, 1), function(err) {
@@ -48,12 +64,39 @@ const setJson = (json, file) => {
     console.log(file);
   }
 }
-let remind = 0;
 
+//send trigger to notify frontend
+const notify = (ws) => {
+  var notified = false;
+  var timer =  setInterval(() => {
+    if(wsConns === 0){
+      clearInterval(timer);
+      return;
+    }
+    if(notified === false){
+      checkReminders(() => {
+        let data = {notification:{msg:"Ein Medikament is verfügbar"}};
+        console.log(JSON.stringify(data));
+        wss.clients.forEach(client => {
+          if(client !== ws && client.readyState === WebSocket.OPEN){
+            client.send(JSON.stringify(data));
+          }
+        });
+        notified = true;
+        setTimeout(() => {
+          notified = false;
+        }, 60000);
+      });
+    }
+  }, 1000);
+}
+
+//Ws-Connection to Medbox
+let remind = 0;
 const wss2 = new WebSocket.Server({port: 8085});
 wss2.on('connection', ws => {
+  console.log("ws to Medbox conected");
   ws.on('message', msg => {
-
     console.log("message received " + msg);
     wss2.clients.forEach(client => {
       if(client !== ws && client.readyState === WebSocket.OPEN){

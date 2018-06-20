@@ -1,61 +1,32 @@
-#bcScreen{
+.wrapper{
+	overflow: auto;
+}
+.item{
+	position: relative;
+	margin: 10px 10px 0 10px;
+	height: 80px;
+	border-radius: 4px;
+	background-color: #fff;
+	box-shadow: 0 0 10px 1px #aaa;	
+}
+.input{
 	position: absolute;
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -50%);
-	width: 80%;
-	height: 70%;
+	width: 90%;
 	border-radius: 4px;
-	overflow: hidden;
-	background-color: #ddd;
+	background-color: #eee;
+	border: none;
+	font-size: 1em;
+	padding: 10px;
+    box-sizing: border-box;
 }
-#screenbg{
+span{
 	position: absolute;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
-	width: 100%;
+    color: #BBB;
+    margin: 10px;
 }
-#lbar{
-	position: absolute;
-	bottom: 10%;
-	left: 50%;
-	transform: translate(-50%);
-	width: 80%;
-	height: 30px;
-	border-radius: 4px;
-	background-color: #ddd;
-	overflow: hidden;
+select{
 	
-}
-#lbarInner{
-	height: 30px;
-	width: 0%;
-	background-color: #4F8A9C;
-	color: white;
-	text-align: center;
-	line-height: 30px;
-	transition: 1s;
-}
-#result{
-	position: absolute;
-	margin: 0 auto;
-	left: 0;
-	right: 0;
-	top: 70%;
-	bottom: 0;
-	width: 80%;
-	height: 200px;
-	border-radius: 4px;
-	overflow: hidden;
-	text-align: center;
-	line-height: 30px;
-}
-#next{
-	position: absolute;
-	left: 50%;
-	transform: translate(-50%);
-	bottom: 5%;
-	font-size: 0.75em;
-	color: #bbb;
 }
