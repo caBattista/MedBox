@@ -66,5 +66,18 @@ const loader = {
     ]
 }
 window.onload = () => {
-    loader.load(1); 
+    loader.load(1);
+
+    if (("Notification" in window)) {
+        Notification.requestPermission(function (permission) {
+            if (permission === "granted") {
+                var notification = new Notification("Hi there!");
+                notification.onclick = function(event) {
+                    event.preventDefault(); // prevent the browser from focusing the Notification's tab
+                    window.open('http://127.0.0.1:8080', '_blank');
+                  }
+            }
+        });
+    }
+
 }
