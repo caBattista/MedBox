@@ -46,7 +46,6 @@ Quagga.onDetected((data) => {
     const bestres = stage.mode(stage.results);
     lbarInner.textContent = bestres;
     Quagga.stop();
-
     ws.get("Meds.json", (json) => {
         for (let i = 0; i < json.length; i++) {
             if(json[i].id == bestres){
@@ -56,7 +55,9 @@ Quagga.onDetected((data) => {
             }
         }
     });
-
+    setTimeout(() => {
+        
+    }, 500);
   }
 });
 

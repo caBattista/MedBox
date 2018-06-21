@@ -7,7 +7,7 @@ const ws = {
     onRes: (calback = (data) => {}) => {
         ws.con.onmessage = event => {
             calback(JSON.parse(event.data));
-            ws.con.onmessage = undefined;
+            ws.notify();
         }
     },
     set: (obj, f) => {

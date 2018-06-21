@@ -14,10 +14,11 @@ let wsConns = 0;
 
 wss.on('connection', ws => {
   wsConns++;
-  console.log("ws to fronend conected conns: " + wsConns);
+  console.log("ws to frontend conected conns: " + wsConns);
   wsOn = true;
   ws.on('message', msg => {
     const msgObj = JSON.parse(msg);
+    console.log("incoming message from frontend " + msg);
     switch (msgObj.type) {
       case "get":
         getJson(json => ws.send(JSON.stringify(json)), msgObj.file);

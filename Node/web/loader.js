@@ -66,5 +66,5 @@ const loader = {
     ]
 }
 window.onload = () => {
-    loader.load(7);
+    loader.load(1);
 }
