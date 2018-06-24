@@ -62,7 +62,7 @@ einloggen.onclick = () => {
 };
 login.onclick = () => {
 	clearInterval(stage.intrerv);
-	loader.load(5);
+	loader.load(4);
 };
 lCont.onclick = () => {
 	clearInterval(stage.intrerv);

@@ -1,9 +1,7 @@
 bcScreen.onclick = () => {
    lbarInner.style.width = "100%";
     setTimeout(() => {
-        ws.get("Meds.json", (json) => {
-            loader.load(7, json[0]);
-        });
+            stage.getMed(17);
     }, 1000);
 };
 keinBarc.onclick = () => {
@@ -45,19 +43,9 @@ Quagga.onDetected((data) => {
 
     const bestres = stage.mode(stage.results);
     lbarInner.textContent = bestres;
+    alert(bestres),
     Quagga.stop();
-    ws.get("Meds.json", (json) => {
-        for (let i = 0; i < json.length; i++) {
-            if(json[i].id == bestres){
-                loader.load(3, {
-                    barcodeRes:json[i].id
-                });
-            }
-        }
-    });
-    setTimeout(() => {
-        
-    }, 500);
+    stage.getMed(bestres);
   }
 });
 
@@ -80,4 +68,18 @@ stage.mode = (array) => {
       }
   }
   return maxEl;
+}
+
+stage.getMed = (id) =>{
+    ws.get("Meds.json", (json) => {
+        console.log(json);
+        for (let i = 0; i < json.file.length; i++) {
+            console.log(json.file[i].id);
+            if(json.file[i].id == id){
+               loader.load(7, {
+                    barcodeRes:json.file[i]
+                });
+            }
+        }
+    });
 }
