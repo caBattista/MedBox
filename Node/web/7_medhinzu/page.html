@@ -1,12 +1,107 @@
 <div id="tb">
-<img id="bb" src="images/backbutton.png"></img>
+<img id="bb" src="images/arrow.svg"></img>
 Medikament hinzufügen
 </div>
 <div id="wrapper" class="wrapper">
     <div class="item">
-        <input id="name" class="input" type="text" placeholder="Name">
+        <div class="itemTitleWrapper">
+            <div class="itemTitle">Info</div>
+            <img class="itemArrow" src="images/arrowGrey.svg"></img>
+        </div>
+        <div class="itemContent">
+            <div class="inputWrapper">
+                <input id="Name" class="input" type="text" placeholder="Name">
+                <div class="underline"></div>
+            </div>
+            <div class="inputWrapper">
+                <textarea id="Beschreibung"class="input" style="margin-top:10px;font-size:0.75em"type="text" placeholder="Beschreibung"></textarea>
+            </div>
+        </div>
     </div>
     <div class="item">
-        <span>Erinnerungen</span>
+        <div class="itemTitleWrapper">
+            <div class="itemTitle">Erinnerung</div>
+            <div id="erSld" class="slider">
+                <div></div>
+            </div>
+            <img class="itemArrow" src="images/arrowGrey.svg"></img>
+        </div>
+        <div class="itemContent">
+            <div class="hinzu">
+                <img class="plus" src="images/plus.svg"></img>
+            </div>  
+        </div>
     </div>
+    <div class="item">
+        <div class="itemTitleWrapper">
+            <div class="itemTitle">Wochenplan</div>
+            <div id="wpSld" class="slider">
+                <div></div>
+            </div>
+            <img class="itemArrow" src="images/arrowGrey.svg"></img>
+        </div>
+        <div class="itemContent">
+            <div class="wt">
+                <div>Mo</div>
+                <div>Di</div>
+                <div>Mi</div>
+                <div>Do</div>
+                <div>Fr</div>
+                <div>Sa</div>
+                <div>So</div>
+            </div>
+        </div>
+    </div>
+    <div class="item">
+        <div class="itemTitleWrapper">
+            <div class="itemTitle">Anweisungen</div>
+            <div id="anSld" class="slider">
+                <div></div>
+            </div>
+            <img class="itemArrow" src="images/arrowGrey.svg"></img>
+        </div>
+        <div class="itemContent">
+            <form class="options" action="">
+                <input type="radio" name="gender" value="male"> Vor dem Essen<br>
+                <input type="radio" name="gender" value="female"> Beim Essen<br>
+                <input type="radio" name="gender" value="other"> Nach dem Essen
+            </form>
+        </div>
+    </div>
+    <div class="item">
+        <div class="itemTitleWrapper">
+            <div class="itemTitle">Freunde</div>
+            <div class="slider">
+                <div></div>
+            </div>
+            <img class="itemArrow" src="images/arrowGrey.svg"></img>
+        </div>
+        <div class="itemContent">
+            <span class="spanSmaller">
+                Hier können Sie Freunde oder Angehörige hinzufügen die Sie daran errinnert falls sie die MedBox nicht wahr nehmen konnten
+            </span> 
+            <div class="hinzu">
+                <img class="plus" src="images/plus.svg"></img>
+            </div>  
+        </div>
+    </div>
+    <div class="item">
+        <div class="itemTitleWrapper">
+            <div class="itemTitle">Artzt</div>
+            <div class="slider">
+                <div></div>
+            </div>
+            <img class="itemArrow" src="images/arrowGrey.svg"></img>
+        </div>
+        <div class="itemContent">
+            <span class="spanSmaller">
+                Sie können Ihrem Artzt in regelmäßigen Abständen einen Bericht zukommen lassen
+            </span> 
+            <div class="hinzu">
+                <img class="plus" src="images/plus.svg"></img>
+            </div>  
+        </div>
+    </div>
+    <div id="weiter" class="btn r" style="right: 10px;top: 10px;float: right;">Weiter</div>
+    <div style="position: relative;height: 80px;pointer-events: none"></div>
 </div>

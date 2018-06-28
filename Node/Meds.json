@@ -1,22 +1,48 @@
 [
     {
-        "id":"1",
+        "id":"00000000000002",
         "name":"Paradoxin",
+        "desc":"Ein para",
+        "reminders": "on",
         "tpyReminders": [
             {
-                "name": "Pille Morgens",
-                "type": "daily",
-                "time": "23:02"
+                "name": "Morgens",
+                "t0": "08:00",
+                "t1": "11:00"
             },
             {
-                "name": "Pille Abends",
-                "type": "daily",
-                "time": "23:02"
+                "name": "Abends",
+                "t0": "19:00",
+                "t1": "22:00"
             }
-        ]
+        ],
+        "week":"on",
+        "days":["1", "0", "0", "0","0","0","0"], 
+        "instructions":"off",
+        "freinds":"on",
+        "doctor":"off"
     },
     {
-        "id":"5901234123457",
-        "name":"Multivitamin"
+        "id":"00000000000017",
+        "name":"Multivitamin",
+        "desc":"Ein para",
+        "reminders": "on",
+        "tpyReminders": [
+            {
+                "name": "Morgens",
+                "t0": "08:00",
+                "t1": "011:00"
+            },
+            {
+                "name": "Abends",
+                "t0": "19:00",
+                "t1": "22.00"
+            }
+        ],
+        "week":"on",
+        "days":["mo", "di", "fr"], 
+        "instructions":"off",
+        "freinds":"off",
+        "doctor":"off"
     }
 ]

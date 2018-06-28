@@ -4,29 +4,129 @@
 .item{
 	position: relative;
 	margin: 10px 10px 0 10px;
-	height: 80px;
-	border-radius: 4px;
+	padding: 10px;
+	border-radius: 3px;
 	background-color: #fff;
-	box-shadow: 0 0 10px 1px #aaa;	
+	box-shadow: 0 0 10px 1px #aaa;
+	font-size: 1em;
+}
+.itemTitleWrapper{
+	height: 0.9em;
+}
+.itemArrow{
+	position: absolute;
+	top: 7px;
+	right: 10px;
+	height: 20px;
+	padding: 5px;
+	transform: rotate(-90deg);
+}
+.itemTitle{
+	float: left;
+	margin: 0 0 0 0;
+	color: #1686c4;
+}
+.itemContent{
+	margin-top: 20px;
+	height: auto;
+    width: 100%;
+	overflow: hidden;
+}
+.slider{
+	position: absolute;
+	top: 12px;
+	left: 50%;
+	width: 2em;
+	height: 1em;
+	box-sizing: border-box;
+	padding: 1px;
+    border-radius: 100px;
+	background-color: #b9daed;
+}
+.slider > div{
+	float: left;
+	width: calc(1em - 2px);
+	height: 100%;
+	border-radius: 100px;
+	background-color: #fff;
+	pointer-events: none;
 }
 .input{
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
-	width: 90%;
-	border-radius: 4px;
-	background-color: #eee;
+	color: #777;
 	border: none;
 	font-size: 1em;
-	padding: 10px;
-    box-sizing: border-box;
+	width: 100%;
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
 }
-span{
-	position: absolute;
-    color: #BBB;
-    margin: 10px;
+.underline{
+	background-color: #17578A;
+	height: 2px;
+	border-radius: 1px;
+	margin-bottom: 2px;
 }
-select{
-	
+.hinzu{
+	float: left;
+	position: relative;
+	border-radius: 100px;
+	background-color: #1686c4;
+	height: 1em;
+	width: 1em;
+}
+.plus{
+	height: 0.75em;
+    position: relative;
+    top: -1.5px;
+    left: 2.5px;
+    pointer-events: none;
+}
+.time{
+	width: 100%;
+	float: left;
+}
+.time > .underline{
+	margin-top: 1.4em;
+}
+.timeTitle{
+	padding: 0;
+	margin: 0;
+	width: 30%;
+	border: none;
+	font-size: 1em;
+	box-sizing: border-box;
+	float: left;
+}
+.timeLabel{
+	float: right;
+	margin: 0 5px 0 5px;
+	color: #777;
+}
+.timeSelector{
+	float: right;
+	border: none;
+	font-size: 1em;
+	height: 1.3em;
+}
+.wt{
+	display: flex;
+	flex-wrap: nowrap;
+}
+.wt > div{
+	width: 100px;
+	margin: 2px;
+	padding: 3px;
+	text-align: center;
+	background-color: #4fb743;
+	color: white;
+	border-radius: 1000px;
+}
+.options{
+	font-size: 0.75em;
+}
+.spanSmaller{
+	float: left;
+	font-size: 0.75em;
+	color: #aaa;
+	margin-bottom: 10px;
 }
