@@ -1,5 +1,4 @@
 # MedBox
-
 An intelligent Medicine Assistant
 
 ### Contributors:
@@ -7,6 +6,10 @@ Valentin Barth, Laura Wernicke, Christopher Battista
 
 ## Logo
 ![logo](Doku/MB_Logo.png)
+
+## Problemstellung
+Aus bisherigen Recherchen hat sich ergeben, dass die meisten Gefragten Probleme damit haben die rechtzeitige und korrekte Ennahme von Medikamenten in ihren Alltag einzubringen. Fehleinnahme, Über- und Unterdosis sind häufig die Folge. Dies spitzt sich noch mehr zu, wenn mehrere Medikamente zu verschiedenen Zeiten eingenommen werden müssen.
+Hier kann gleichzeitige Einnahme der falschen Medikamente verheerende Nebenwirkungen haben. Deshalb sind grade Senioren auf Familienangehörige angewiesen, welche die Verantwortung der richtigen Einnahme übernehmen.
 
 ## Architektur
 ![logo](Doku/Architektur.png)
