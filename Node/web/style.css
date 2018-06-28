@@ -13,6 +13,9 @@ body{
 #stage{
 	position: absolute;
 	width: 100%;
+	/*max-width: 400px;
+	left: 50%;
+	transform: translate(-50%);*/
 	height: 100%;
 	overflow: hidden;
 	transition: 0.1s;
@@ -43,7 +46,6 @@ body{
 	top: 0;
 	bottom: 0;
 	left: 10px;
-	width: 13px;
 	height: 20px;
 }
 .btn{

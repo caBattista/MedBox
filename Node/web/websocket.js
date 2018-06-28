@@ -14,7 +14,7 @@ const ws = {
         ws.con.send(JSON.stringify({type:"set", json:JSON.stringify(obj), file:f}));
     },
     notify: () => {
-        ws.con.send(JSON.stringify({type:"rqNotifications"}));
+        //ws.con.send(JSON.stringify({type:"rqNotifications"}));
         ws.con.onmessage = event => {
             let json = JSON.parse(event.data);
             console.log(json);

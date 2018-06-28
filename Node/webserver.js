@@ -8,4 +8,4 @@ app.listen(8080, function () {
 
 
 const ws = require('./wsservers');
-//ws.run();
+ws.run();
