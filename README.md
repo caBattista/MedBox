@@ -3,10 +3,10 @@
 An intelligent Medicine Assistant
 
 ## Logo
-![logo](MB_Logo.png)
+![logo](Doku/MB_Logo.png)
 
 ## Architektur
-![logo](Architektur.jpg)
+![logo](Doku/Architektur.jpg)
 
 Contributors:
 Valentin Barth, Laura Wernicke, Christopher Battista
