@@ -5,21 +5,29 @@
    {
     "name": "box1",
     "med": {
-        "name":"",
-        "id":""
+     "name": "Multivitamin"
     },
-    "amount": 5,
     "reminders": [
      {
-      "name": "Pille Morgens",
-      "type": "daily",
-      "time": "13:57"
+      "name": "Morgens",
+      "time": "08:00",
+      "time1": ""
      },
      {
-    "name": "Pille Mittags",
-    "type": "daily",
-    "time": "00:20"
-    }
+      "name": "Abends",
+      "time": "19:00",
+      "time1": ""
+     },
+     {
+      "name": "2239",
+      "time": "22:39",
+      "time1": ""
+     },
+     {
+      "name": "2240",
+      "time": "22:40",
+      "time1": ""
+     }
     ]
    }
   ]

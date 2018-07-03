@@ -5,6 +5,6 @@ setTimeout(() => {
 	check.style.transition = "0.5s";
 	check.style.opacity = "1";
 	setTimeout(() => {
-		loader.load(3);
+		loader.load(8);
 	}, 500);
 }, 2000);

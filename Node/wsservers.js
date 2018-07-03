@@ -1,4 +1,4 @@
-exports.run = function () {
+exports.run = () => {
 
     const fs = require('fs');
     const WebSocket = require('ws');
@@ -19,12 +19,6 @@ exports.run = function () {
             break;
         case "set":
             setJson(JSON.parse(msgObj.json), msgObj.file);
-            break;
-        case "rqNotifications":
-            if(wsConns === 1){
-            console.log('notify');
-            notify(wss);
-            }
             break;
         }
     });
@@ -61,36 +55,22 @@ exports.run = function () {
     }
 
     //send trigger to notify frontend
-    const notify = (ws) => {
-    var notified = false;
-    var timer =  setInterval(() => {
-        if(wsConns === 0){
-        clearInterval(timer);
-        return;
-        }
-        if(notified === false){
-        checkReminders(() => {
-            let data = {notification:{msg:"Ein Medikament is verfügbar"}};
-            console.log(JSON.stringify(data));
-            wss.clients.forEach(client => {
+    const notifyAll = (msg = "Ein Medikament ist verfügbar", ws) => {
+        let data = {notification:{msg:msg}};
+        console.log(JSON.stringify(data));
+        wss.clients.forEach(client => {
             if(client !== ws && client.readyState === WebSocket.OPEN){
                 client.send(JSON.stringify(data));
             }
-            });
-            notified = true;
-            setTimeout(() => {
-            notified = false;
-            }, 60000);
         });
-        }
-    }, 1000);
     }
 
     //Ws-Connection to Medbox
-    let remind = 0;
+    let remPool = {taken:1};
     const wss2 = new WebSocket.Server({port: 8085});
     wss2.on('connection', ws => {
     console.log("ws to Medbox conected");
+    ws.send(JSON.stringify({act:"display", content:"", size: 3, clear: 1}));
     ws.on('message', msg => {
         console.log("message received " + msg);
         wss2.clients.forEach(client => {
@@ -100,15 +80,17 @@ exports.run = function () {
         });
         try{
         if (JSON.parse(msg).event == "button_push") {
-            if(remind == 1){
-            ws.send(JSON.stringify({act:"dispense"}));
-            remind = 0;
+            if(remPool.taken == 0){
+                ws.send(JSON.stringify({act:"dispense"}));
+                ws.send(JSON.stringify({act:"display", content:"", size: 1, clear: 1}));
+                //notifyAll("Medikament wurde eingenommen");
+                remPool.taken = 1;
             }
             else{
-            ws.send(JSON.stringify({act:"display", content:"Noch   Nicht", size: 3, clear: 1}));
-            setTimeout(() => {
-                ws.send(JSON.stringify({act:"display", content:"", size: 1, clear: 1}));
-            },1000);
+                ws.send(JSON.stringify({act:"display", content:"Noch   Nicht", size: 3, clear: 1}));
+                setTimeout(() => {
+                    ws.send(JSON.stringify({act:"display", content:"", size: 1, clear: 1}));
+                },1000);
             } 
         }
         }catch(e){}
@@ -116,41 +98,50 @@ exports.run = function () {
 
     setInterval(() => {
         checkReminders(() => {
-            remind = 1;
-            ws.send(JSON.stringify({act:"display", content:"Jetzt", size: 4, clear: 1}));
-            setTimeout(() => {
-            ws.send(JSON.stringify({act:"display", content:"", size: 1, clear: 1}));
-            },500);
+            ws.send(JSON.stringify({act:"display", content:remPool.name, size: 3, clear: 1}));
             console.log("reminding");
+            notifyAll("Erinnerung: " + remPool.name);
         });
     }, 1000);
     
     });
 
+
     //check for reminders
     const checkReminders = (callback) => {
-    fs.readFile("Users.json", 'utf8', function (err, data) {
-        if (err) {return console.log(err);}
-        
-        const users = JSON.parse(data)
-        const d = new Date();
-        const timestr = ("0" + d.getHours()).slice(-2) + ":" + ("0" + d.getMinutes()).slice(-2);
-        
-        console.log("reminders check at: " + timestr);
+        fs.readFile("Users.json", 'utf8', function (err, data) {
+            
+            if (err) {return console.log(err);}
 
-        for (let i = 0; i < users.length; i++) {
-        let user = users[i];
-        for (let j = 0; j < user.boxes.length; j++) {
-            let box = user.boxes[j];
-            for (let k = 0; k < box.reminders.length; k++) {
-            let reminder = box.reminders[k];
-            if(reminder.time == timestr){
-                callback();
+            const users = JSON.parse(data)
+            const d = new Date();
+            const timestr = ("0" + d.getHours()).slice(-2) + ":" + ("0" + d.getMinutes()).slice(-2);
+
+            console.log("remPool at " + timestr + " : ");
+            console.log(remPool);
+            //go through users.json and scan for reminders
+            for (let i = 0; i < users.length; i++) {
+                let user = users[i];
+                for (let j = 0; j < user.boxes.length; j++) {
+                    let box = user.boxes[j];
+                    for (let k = 0; k < box.reminders.length; k++) {
+
+                        let reminder = box.reminders[k];
+                        //if reminder is now then trigger callback
+                        if(reminder.time == timestr){
+                            //if not found any same reminders add this one
+                            if(remPool.name != reminder.name || remPool.time != reminder.time || remPool.time1 != reminder.time1){
+                                remPool.name = reminder.name;
+                                remPool.time = reminder.time;
+                                remPool.time1 = reminder.time1;
+                                remPool.taken = 0;
+                                callback();
+                            }
+                        }
+                    }
+                }
             }
-            }
-        }
-        }
-    });
+        });
     }
 
     return true;
