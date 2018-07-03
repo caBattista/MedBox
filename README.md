@@ -48,3 +48,6 @@ Komponenten
     + Oled Display für die Anzeige (8)
 + Sensor
     + Druckknopf zur Anfrage von Tabletten (7)
+
+## Skizze
+![logo](Doku/MedBox.png)
