@@ -1,31 +1,31 @@
 [
     {
-        "id":"00000000000002",
-        "name":"Paradoxin",
-        "desc":"Ein para",
+        "id":"000000000000017",
+        "name":"L-Thyroxin",
+        "desc":"L-Thyroxin Henning 100 ist ein Arzneimittel, das als Wirkstoff das Schilddrüsenhormon Levothyroxin enthält. Dieses hat die gleiche Wirkung wie das natürlicherweise gebildete Hormon.Sie erhalten L-Thyroxin Henning 100, um fehlendes Schilddrüsenhormon zu ersetzen oder/und um Ihre Schilddrüse zu entlasten.",
         "reminders": "on",
         "tpyReminders": [
             {
-                "name": "Morgens",
-                "t0": "08:00",
-                "t1": "11:00"
+                "name": "Mittags",
+                "t0": "11:00",
+                "t1": "13:00"
             },
             {
                 "name": "Abends",
-                "t0": "19:00",
-                "t1": "22:00"
+                "t0": "18:00",
+                "t1": "21:00"
             }
         ],
         "week":"on",
-        "days":["1", "0", "0", "0","0","0","0"], 
+        "days":["1", "0", "1", "0", "1", "0", "0"], 
         "instructions":"off",
         "freinds":"on",
         "doctor":"off"
     },
     {
-        "id":"00000000000017",
+        "id":"00000000000002",
         "name":"Multivitamin",
-        "desc":"Ein para",
+        "desc":"HiLife liefert das Wertvollste aus Obst und Gemüse für Ihre Gesundheit mit einer wissenschaftlich geprüften Mischung aus 21 vitalstoffreichen Obst- und Gemüsesorten.",
         "reminders": "on",
         "tpyReminders": [
             {
@@ -40,7 +40,30 @@
             }
         ],
         "week":"on",
-        "days":["mo", "di", "fr"], 
+        "days":["1", "0", "1", "0", "0", "1", "0"], 
+        "instructions":"off",
+        "freinds":"off",
+        "doctor":"off"
+    },
+    {
+        "id":"00000000000003",
+        "name":"Atenolol AL",
+        "desc":"Der Wirkstoff senkt den Blutdruck. Um das zu erreichen, blockiert er im Körper die Bindungsstellen von Botenstoffen, so genannte Beta-Rezeptoren.",
+        "reminders": "on",
+        "tpyReminders": [
+            {
+                "name": "Morgens",
+                "t0": "08:00",
+                "t1": "11:00"
+            },
+            {
+                "name": "Abends",
+                "t0": "19:00",
+                "t1": "22.00"
+            }
+        ],
+        "week":"on",
+        "days":["1", "1", "1", "1", "1", "1", "1"], 
         "instructions":"off",
         "freinds":"off",
         "doctor":"off"

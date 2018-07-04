@@ -5,18 +5,18 @@
    {
     "name": "box1",
     "med": {
-     "name": "Multivitamin"
+     "name": "L-Thyroxin"
     },
     "reminders": [
      {
-      "name": "Morgens",
-      "time": "12:52",
-      "time1": ""
+      "name": "Mittags",
+      "time": "11:00",
+      "time1": "13:00"
      },
      {
       "name": "Abends",
-      "time": "19:00",
-      "time1": ""
+      "time": "18:00",
+      "time1": "21:00"
      }
     ]
    }

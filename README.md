@@ -6,6 +6,8 @@ Valentin Barth, Laura Wernicke, Christopher Battista
 
 ## Logo
 ![logo](Doku/MB_Logo.png)
+Die Medbox ist eine intelligente Pillendose, die Familienangehörige
+bei einer verpassten Dosis benachrichtigt.
 
 ## Problemstellung
 Aus bisherigen Recherchen hat sich ergeben, dass die meisten Gefragten Probleme damit haben die rechtzeitige und korrekte Ennahme von Medikamenten in ihren Alltag einzubringen. Fehleinnahme, Über- und Unterdosis sind häufig die Folge. Dies spitzt sich noch mehr zu, wenn mehrere Medikamente zu verschiedenen Zeiten eingenommen werden müssen.
