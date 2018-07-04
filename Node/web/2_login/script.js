@@ -35,7 +35,7 @@ stage.cylceImages = () => {
 	lCont.style.opacity = 0;
 	stage.imgs[stage.currImg].style.transition = "1s";
 	stage.imgs[stage.currImg].style.opacity = 1;
-	setTimeout(() => {
+	// setTimeout(() => {
 		stage.imgs[stage.currImg].style.filter = "brightness(50%)";
 		t1.textContent = stage.cycle[stage.currImg].tt;
 		t2.textContent = stage.cycle[stage.currImg].bt;
@@ -53,7 +53,7 @@ stage.cylceImages = () => {
 		}
 		stage.circles[stage.currImg].style.backgroundColor = "white";
 		stage.currImg++;
-	},1000);
+	// },1000);
 }
 stage.intrerv = setInterval(() => {stage.cylceImages();},7000);
 einloggen.onclick = () => {

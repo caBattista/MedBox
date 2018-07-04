@@ -38,7 +38,7 @@ document.querySelectorAll(".slider").forEach(slider => {
 		}
 		else{
 			toggle.children[0].style.marginLeft = "1em";
-			toggle.style.backgroundColor = "#4fb743";
+			toggle.style.backgroundColor = "#1686c4";
 		}
 	};
 });
@@ -47,9 +47,9 @@ document.querySelector(".hinzu").onclick = (event) => {
 	time.className = "time";
 	time.innerHTML = `
 		<input class="timeTitle" type="text" placeholder="Name">
-		<input type="time" class="timeSelector">
-		<span class="timeLabel">bis</span>
-		<input type="time" class="timeSelector">
+		<input type="time" class="timeSelector" value="09:00">
+		<span class="timeLabel" value="08:00">bis</span>
+		<input type="time" class="timeSelector" value="08:00">
 		<span class="timeLabel">von</span>
 		<div class="underline"></div>
 	`;
@@ -79,7 +79,7 @@ stage.preselect = () => {
 	if(stage.kept.barcodeRes.reminders){
 		if(stage.kept.barcodeRes.reminders == "on"){
 			erSld.children[0].style.marginLeft = "1em";
-			erSld.style.backgroundColor = "#4fb743";
+			erSld.style.backgroundColor = "#1686c4";
 		}
 	}
 	if(stage.kept.barcodeRes.tpyReminders){

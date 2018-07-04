@@ -3,11 +3,11 @@
 }
 .item{
 	position: relative;
-	margin: 10px 10px 0 10px;
+	margin: 15px 15px 0 15px;
 	padding: 10px;
 	border-radius: 3px;
 	background-color: #fff;
-	box-shadow: 0 0 10px 1px #aaa;
+	box-shadow: 0 0 5px 1px #aaa;
 	font-size: 1em;
 }
 .itemTitleWrapper{
@@ -61,8 +61,8 @@
 	box-sizing: border-box;
 }
 .underline{
-	background-color: #17578A;
-	height: 2px;
+	background-color: #ddd;
+	height: 1px;
 	border-radius: 1px;
 	margin-bottom: 2px;
 }
@@ -71,24 +71,28 @@
 	position: relative;
 	border-radius: 100px;
 	background-color: #1686c4;
-	height: 1em;
-	width: 1em;
+	height: 20px;
+	width: 20px;
 }
 .plus{
 	height: 0.75em;
-    position: relative;
-    top: -1.5px;
-    left: 2.5px;
+    position: absolute;
+	top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     pointer-events: none;
 }
 .time{
 	width: 100%;
 	float: left;
+	margin-bottom: 10px;
 }
 .time > .underline{
 	margin-top: 1.4em;
+
 }
 .timeTitle{
+	width: 80px !important;
 	padding: 0;
 	margin: 0;
 	width: 30%;
@@ -96,6 +100,7 @@
 	font-size: 1em;
 	box-sizing: border-box;
 	float: left;
+	color: #777;
 }
 .timeLabel{
 	float: right;
@@ -107,6 +112,7 @@
 	border: none;
 	font-size: 1em;
 	height: 1.3em;
+	color: #777;
 }
 .wt{
 	display: flex;

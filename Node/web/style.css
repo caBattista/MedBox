@@ -1,13 +1,17 @@
 @font-face {
-    font-family: HelveticaNeue-Ligh;
-    src: url("HelveticaNeue-Light.otf") format("opentype");
+    font-family: 'Roboto-Thin';
+    src: url("Roboto-Thin.ttf") format("truetype");
+}
+@font-face {
+    font-family: 'Roboto-Light';
+    src: url("Roboto-Light.ttf") format("truetype");
 }
 body{
 	margin: 0;
 	padding: 0;
 	background-color: #f1f1f3;
-	font-family: 'HelveticaNeue-Ligh';
-	font-size: 20px;
+	font-family: 'Roboto-Light';
+	font-size: 18px;
 	color: #222222;
 }
 #stage{

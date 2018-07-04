@@ -95,16 +95,17 @@ exports.run = () => {
         }
         }catch(e){}
     })
+    });
 
     setInterval(() => {
         checkReminders(() => {
-            ws.send(JSON.stringify({act:"display", content:remPool.name, size: 3, clear: 1}));
+            if(ws != undefined){
+                ws.send(JSON.stringify({act:"display", content:remPool.name, size: 3, clear: 1}));
+            }
             console.log("reminding");
             notifyAll("Erinnerung: " + remPool.name);
         });
     }, 1000);
-    
-    });
 
 
     //check for reminders

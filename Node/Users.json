@@ -10,22 +10,12 @@
     "reminders": [
      {
       "name": "Morgens",
-      "time": "08:00",
+      "time": "12:52",
       "time1": ""
      },
      {
       "name": "Abends",
       "time": "19:00",
-      "time1": ""
-     },
-     {
-      "name": "2239",
-      "time": "22:39",
-      "time1": ""
-     },
-     {
-      "name": "2240",
-      "time": "22:40",
       "time1": ""
      }
     ]
