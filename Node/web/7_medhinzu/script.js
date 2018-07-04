@@ -101,7 +101,7 @@ stage.preselect = () => {
 	if(stage.kept.barcodeRes.week){
 		if(stage.kept.barcodeRes.week == "on"){
 			wpSld.children[0].style.marginLeft = "1em";
-			wpSld.style.backgroundColor = "#4fb743";
+			wpSld.style.backgroundColor = "#1686c4";
 		}
 	}
 	if(stage.kept.barcodeRes.days){
@@ -117,7 +117,7 @@ stage.preselect = () => {
 	if(stage.kept.barcodeRes.instructions){
 		if(stage.kept.barcodeRes.instructions == "on"){
 			anSld.children[0].style.marginLeft = "1em";
-			anSld.style.backgroundColor = "#4fb743";
+			anSld.style.backgroundColor = "#1686c4";
 		}
 	}
 	if(stage.kept.barcodeRes.name){

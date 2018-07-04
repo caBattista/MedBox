@@ -43,7 +43,6 @@ Quagga.onDetected((data) => {
 
     const bestres = stage.mode(stage.results);
     lbarInner.textContent = bestres;
-    alert(bestres),
     Quagga.stop();
     stage.getMed(bestres);
   }

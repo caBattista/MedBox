@@ -97,11 +97,15 @@ exports.run = () => {
     })
     });
 
+    const sendToMB = (ws) => {
+        if(ws != undefined){
+            ws.send(JSON.stringify({act:"display", content:remPool.name, size: 3, clear: 1}));
+        }
+    }
+
     setInterval(() => {
         checkReminders(() => {
-            if(ws != undefined){
-                ws.send(JSON.stringify({act:"display", content:remPool.name, size: 3, clear: 1}));
-            }
+            
             console.log("reminding");
             notifyAll("Erinnerung: " + remPool.name);
         });
