@@ -65,12 +65,11 @@ document.querySelectorAll(".wt > div").forEach(wt => {
 		}
 	};
 });
-weiter.onclick = () => {
-	clearInterval(stage.intrerv);
-	loader.load(5);
-};
 
 stage.preselect = () => {
+	if(!stage.kept){
+		return;
+	}
 	if(stage.kept.barcodeRes.name){
 		document.getElementById("Name").value = stage.kept.barcodeRes.name;
 	}
@@ -126,3 +125,26 @@ stage.preselect = () => {
 	}
 }
 stage.preselect();
+
+stage.saveToServer = () => {
+	ws.get("Users.json",(json) =>{
+		json.file[0].boxes[0].med.name = document.querySelector("#Name").value;
+		json.file[0].boxes[0].reminders = [];
+		const times = document.querySelectorAll(".time");
+		for (let i = 0; i < times.length; i++) {
+			json.file[0].boxes[0].reminders[i] = {
+				name: times[i].children[0].value,
+				time: times[i].children[3].value,
+				time1: times[i].children[1].value
+			}
+		}
+		ws.set(json.file, "Users.json");
+	});
+}
+
+weiter.onclick = () => {
+	clearInterval(stage.intrerv);
+	stage.saveToServer();
+	loader.load(5);
+};
+

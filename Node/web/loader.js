@@ -62,7 +62,8 @@ const loader = {
         "4_barcodescanner",
         "5_einrichten",
         "6_einstellungen",
-        "7_medhinzu"
+        "7_medhinzu",
+        "8_ende"
     ]
 }
 window.onload = () => {

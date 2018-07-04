@@ -4,7 +4,7 @@ const ws = {
         ws.con.send(JSON.stringify({type:"get", file:f}));
         ws.onRes(calback);
     },
-    onRes: (calback = (data) => {}) => {
+    onRes: (calback = () => {}) => {
         ws.con.onmessage = event => {
             calback(JSON.parse(event.data));
             ws.notify();
@@ -14,7 +14,6 @@ const ws = {
         ws.con.send(JSON.stringify({type:"set", json:JSON.stringify(obj), file:f}));
     },
     notify: () => {
-        //ws.con.send(JSON.stringify({type:"rqNotifications"}));
         ws.con.onmessage = event => {
             let json = JSON.parse(event.data);
             console.log(json);
