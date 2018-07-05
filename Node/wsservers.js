@@ -94,23 +94,15 @@ exports.run = () => {
             } 
         }
         }catch(e){}
+        setInterval(() => {
+            checkReminders(() => {
+                ws.send(JSON.stringify({act:"display", content:remPool.name, size: 2, clear: 1}));
+                console.log("reminding");
+                notifyAll("Erinnerung: " + remPool.name);
+            });
+        }, 1000);
     })
     });
-
-    const sendToMB = (ws) => {
-        if(ws != undefined){
-            ws.send(JSON.stringify({act:"display", content:remPool.name, size: 3, clear: 1}));
-        }
-    }
-
-    setInterval(() => {
-        checkReminders(() => {
-            
-            console.log("reminding");
-            notifyAll("Erinnerung: " + remPool.name);
-        });
-    }, 1000);
-
 
     //check for reminders
     const checkReminders = (callback) => {

@@ -5,18 +5,13 @@
    {
     "name": "box1",
     "med": {
-     "name": "L-Thyroxin"
+     "name": ""
     },
     "reminders": [
      {
-      "name": "Mittags",
-      "time": "11:00",
-      "time1": "13:00"
-     },
-     {
-      "name": "Abends",
-      "time": "18:00",
-      "time1": "21:00"
+      "name": "           Dringend!",
+      "time": "18:45",
+      "time1": "09:00"
      }
     ]
    }
